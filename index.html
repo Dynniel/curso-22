@@ -1,0 +1,2068 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caminho da Prosperidade | Transforme sua vida em 8 semanas</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        :root {
+            --primary-dark: #1A365D;
+            --primary-gold: #E6A817;
+            --text-light: #FFFFFF;
+            --text-dark: #333333;
+            --accent-light: #F5F5F5;
+            --accent-dark: #0F2444;
+            --success: #2E7D32;
+            --warning: #FF9800;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+            background-color: #FFFFFF;
+            overflow-x: hidden;
+            transition: opacity 0.5s ease;
+        }
+        
+        body.loaded {
+            opacity: 1;
+        }
+        
+        body.popup-open {
+            overflow: hidden;
+        }
+        
+        h1, h2, h3, h4, h5 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            line-height: 1.3;
+            margin-bottom: 1rem;
+        }
+        
+        h1 {
+            font-size: 3.5rem;
+        }
+        
+        h2 {
+            font-size: 2.5rem;
+        }
+        
+        h3 {
+            font-size: 2rem;
+        }
+        
+        p {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 15px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary-gold);
+            color: var(--primary-dark);
+            box-shadow: 0 4px 15px rgba(230, 168, 23, 0.4);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(230, 168, 23, 0.6);
+        }
+        
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--primary-gold);
+            border: 2px solid var(--primary-gold);
+        }
+        
+        .btn-secondary:hover {
+            background-color: var(--primary-gold);
+            color: var(--primary-dark);
+        }
+        
+        .btn-large {
+            padding: 18px 36px;
+            font-size: 1.3rem;
+        }
+        
+        .text-center {
+            text-align: center;
+        }
+        
+        .text-gold {
+            color: var(--primary-gold);
+        }
+        
+        .text-white {
+            color: var(--text-light);
+        }
+        
+        .mb-1 { margin-bottom: 1rem; }
+        .mb-2 { margin-bottom: 2rem; }
+        .mb-3 { margin-bottom: 3rem; }
+        .mb-5 { margin-bottom: 5rem; }
+        .mt-1 { margin-top: 1rem; }
+        .mt-2 { margin-top: 2rem; }
+        .mt-3 { margin-top: 3rem; }
+        .mt-5 { margin-top: 5rem; }
+        .py-5 { padding-top: 5rem; padding-bottom: 5rem; }
+        .py-10 { padding-top: 10rem; padding-bottom: 10rem; }
+        
+        /* Header */
+        header {
+            background-color: var(--primary-dark);
+            padding: 15px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, background-color 0.3s ease, padding 0.3s ease;
+        }
+        
+        header.sticky {
+            background-color: rgba(26, 54, 93, 0.95);
+            padding: 10px 0;
+            backdrop-filter: blur(5px);
+        }
+        
+        header.hide {
+            transform: translateY(-100%);
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo img {
+            height: 50px;
+            transition: height 0.3s ease;
+        }
+        
+        header.sticky .logo img {
+            height: 40px;
+        }
+        
+        .logo-text {
+            margin-left: 10px;
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--primary-gold);
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 30px;
+        }
+        
+        .nav-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+            padding-bottom: 5px;
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary-gold);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary-gold);
+        }
+        
+        .mobile-menu {
+            display: none;
+            font-size: 1.5rem;
+            color: var(--text-light);
+            cursor: pointer;
+            z-index: 1100;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background-color: var(--primary-dark);
+            background-image: url('assets/hero_background_new.png');
+            background-size: cover;
+            background-position: center;
+            color: var(--text-light);
+            padding: 180px 0 100px;
+            position: relative;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to right, rgba(26, 54, 93, 0.9) 0%, rgba(26, 54, 93, 0.7) 100%);
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+        
+        .hero h1 span {
+            color: var(--primary-gold);
+        }
+        
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            max-width: 700px;
+        }
+        
+        .hero-cta {
+            display: flex;
+            gap: 20px;
+            margin-top: 2.5rem;
+        }
+        
+        .countdown-container {
+            background-color: rgba(15, 36, 68, 0.8);
+            border: 1px solid var(--primary-gold);
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 3rem;
+            display: inline-block;
+            transition: transform 0.3s ease;
+        }
+        
+        .countdown-container.pulse {
+            transform: scale(1.05);
+        }
+        
+        .countdown-title {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: var(--primary-gold);
+        }
+        
+        .countdown {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .countdown-item {
+            text-align: center;
+        }
+        
+        .countdown-number {
+            background-color: var(--primary-gold);
+            color: var(--primary-dark);
+            font-size: 1.8rem;
+            font-weight: 700;
+            padding: 10px 15px;
+            border-radius: 5px;
+            display: block;
+            min-width: 60px;
+        }
+        
+        .countdown-label {
+            font-size: 0.8rem;
+            margin-top: 5px;
+            color: var(--text-light);
+        }
+        
+        /* Limited Spots */
+        .limited-spots {
+            background-color: var(--accent-dark);
+            padding: 15px 0;
+            text-align: center;
+        }
+        
+        .limited-spots-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+        }
+        
+        .limited-spots img {
+            height: 80px;
+        }
+        
+        .limited-spots p {
+            color: var(--text-light);
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin: 0;
+        }
+        
+        .limited-spots span {
+            color: var(--primary-gold);
+        }
+        
+        /* Benefits Section */
+        .benefits {
+            padding: 100px 0;
+            background-color: #FFFFFF;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .section-title h2 {
+            color: var(--primary-dark);
+            position: relative;
+            display: inline-block;
+            padding-bottom: 15px;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--primary-gold);
+        }
+        
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 3rem;
+        }
+        
+        .benefit-card {
+            background-color: #FFFFFF;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid #EFEFEF;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        
+        .benefit-card.animate {
+            opacity: 1;
+            transform: translateY(0);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+        
+        .benefit-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .benefit-icon {
+            width: 70px;
+            height: 70px;
+            background-color: var(--primary-dark);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        
+        .benefit-icon i {
+            color: var(--primary-gold);
+            font-size: 2rem;
+        }
+        
+        .benefit-card h3 {
+            color: var(--primary-dark);
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+        
+        .benefit-card p {
+            color: var(--text-dark);
+            margin-bottom: 0;
+        }
+        
+        /* Transformation Section */
+        .transformation {
+            padding: 100px 0;
+            background-color: #F9F9F9;
+        }
+        
+        .transformation-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+        
+        .transformation-text {
+            flex: 1;
+        }
+        
+        .transformation-image {
+            flex: 1;
+            text-align: center;
+        }
+        
+        .transformation-image img {
+            max-width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Modules Section */
+        .modules {
+            padding: 100px 0;
+            background-color: var(--primary-dark);
+            color: var(--text-light);
+        }
+        
+        .modules .section-title h2 {
+            color: var(--text-light);
+        }
+        
+        .modules-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 3rem;
+        }
+        
+        .module-card {
+            background-color: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            padding: 30px;
+            border: 1px solid rgba(230, 168, 23, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        
+        .module-card.animate {
+            opacity: 1;
+            transform: translateY(0);
+            transition: opacity 0.5s ease 0.2s, transform 0.5s ease 0.2s;
+        }
+        
+        .module-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background-color: var(--primary-gold);
+        }
+        
+        .module-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .module-number {
+            font-size: 4rem;
+            font-weight: 700;
+            color: rgba(230, 168, 23, 0.2);
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            line-height: 1;
+        }
+        
+        .module-card h3 {
+            color: var(--primary-gold);
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .module-card p {
+            color: var(--text-light);
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .module-features {
+            list-style: none;
+            margin-top: 20px;
+        }
+        
+        .module-features li {
+            margin-bottom: 10px;
+            position: relative;
+            padding-left: 25px;
+        }
+        
+        .module-features li::before {
+            content: '\f00c'; /* Font Awesome check icon */
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            color: var(--primary-gold);
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        
+        /* Testimonials Section */
+        .testimonials {
+            padding: 100px 0;
+            background-color: #FFFFFF;
+        }
+        
+        .testimonials-slider {
+            margin-top: 3rem;
+            display: flex;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            scroll-behavior: smooth;
+            -webkit-overflow-scrolling: touch;
+            gap: 30px;
+            padding-bottom: 30px;
+            cursor: grab;
+        }
+        
+        .testimonials-slider.active {
+            cursor: grabbing;
+        }
+        
+        .testimonials-slider::-webkit-scrollbar {
+            height: 8px;
+        }
+        
+        .testimonials-slider::-webkit-scrollbar-track {
+            background: #F1F1F1;
+            border-radius: 10px;
+        }
+        
+        .testimonials-slider::-webkit-scrollbar-thumb {
+            background: var(--primary-gold);
+            border-radius: 10px;
+        }
+        
+        .testimonial-card {
+            scroll-snap-align: start;
+            min-width: 350px;
+            background-color: #FFFFFF;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            border: 1px solid #EFEFEF;
+            flex: 0 0 auto;
+            width: calc(33.333% - 20px);
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        
+        .testimonial-card.animate {
+            opacity: 1;
+            transform: translateY(0);
+            transition: opacity 0.5s ease 0.4s, transform 0.5s ease 0.4s;
+        }
+        
+        .testimonial-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .testimonial-avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-right: 15px;
+            border: 3px solid var(--primary-gold);
+        }
+        
+        .testimonial-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .testimonial-author h4 {
+            margin-bottom: 5px;
+            color: var(--primary-dark);
+        }
+        
+        .testimonial-author p {
+            margin-bottom: 0;
+            color: var(--text-dark);
+            opacity: 0.8;
+            font-size: 0.9rem;
+        }
+        
+        .testimonial-rating {
+            color: var(--primary-gold);
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            color: var(--text-dark);
+            position: relative;
+        }
+        
+        .testimonial-text::before {
+            content: '\201C'; /* Left double quotation mark */
+            font-size: 4rem;
+            color: rgba(230, 168, 23, 0.2);
+            position: absolute;
+            top: -20px;
+            left: -10px;
+            font-family: 'Playfair Display', serif;
+        }
+        
+        /* Pricing Section */
+        .pricing {
+            padding: 100px 0;
+            background-color: #F9F9F9;
+        }
+        
+        .pricing-container {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 3rem;
+            flex-wrap: wrap;
+        }
+        
+        .pricing-card {
+            background-color: #FFFFFF;
+            border-radius: 10px;
+            padding: 40px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            border: 1px solid #EFEFEF;
+            flex: 1;
+            min-width: 300px;
+            max-width: 380px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        
+        .pricing-card.animate {
+            opacity: 1;
+            transform: translateY(0);
+            transition: opacity 0.5s ease 0.6s, transform 0.5s ease 0.6s;
+        }
+        
+        .pricing-card.featured {
+            transform: scale(1.05);
+            border: 2px solid var(--primary-gold);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            z-index: 1;
+        }
+        
+        .pricing-card.featured::before {
+            content: 'MAIS POPULAR';
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: var(--primary-gold);
+            color: var(--primary-dark);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 700;
+        }
+        
+        .pricing-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .pricing-card.featured:hover {
+            transform: scale(1.05) translateY(-10px);
+        }
+        
+        .pricing-header {
+            text-align: center;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #EFEFEF;
+            margin-bottom: 30px;
+        }
+        
+        .pricing-name {
+            color: var(--primary-dark);
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+        
+        .pricing-price {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--primary-dark);
+            margin-bottom: 10px;
+        }
+        
+        .pricing-price span {
+            font-size: 1.2rem;
+            font-weight: 400;
+            opacity: 0.7;
+        }
+        
+        .pricing-description {
+            color: var(--text-dark);
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        
+        .pricing-features {
+            list-style: none;
+            margin-bottom: 30px;
+        }
+        
+        .pricing-features li {
+            margin-bottom: 15px;
+            position: relative;
+            padding-left: 30px;
+            color: var(--text-dark);
+        }
+        
+        .pricing-features li::before {
+            content: '\f00c'; /* Font Awesome check icon */
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            color: var(--success);
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        
+        .pricing-features li.not-included {
+            opacity: 0.5;
+            text-decoration: line-through;
+        }
+        
+        .pricing-features li.not-included::before {
+            content: '\f00d'; /* Font Awesome times icon */
+            color: #999;
+        }
+        
+        .pricing-cta {
+            text-align: center;
+        }
+        
+        /* Value Stack Section */
+        .value-stack {
+            padding: 100px 0;
+            background-color: var(--primary-dark);
+            color: var(--text-light);
+        }
+        
+        .value-stack-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+        
+        .value-stack-text {
+            flex: 1;
+        }
+        
+        .value-stack-image {
+            flex: 1;
+            text-align: center;
+        }
+        
+        .value-stack-image img {
+            max-width: 100%;
+            border-radius: 10px;
+        }
+        
+        /* Guarantee Section */
+        .guarantee {
+            padding: 100px 0;
+            background-color: #FFFFFF;
+        }
+        
+        .guarantee-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+        
+        .guarantee-image {
+            flex: 1;
+            text-align: center;
+        }
+        
+        .guarantee-image img {
+            max-width: 100%;
+            border-radius: 10px;
+        }
+        
+        .guarantee-text {
+            flex: 1;
+        }
+        
+        /* FAQ Section */
+        .faq {
+            padding: 100px 0;
+            background-color: #F9F9F9;
+        }
+        
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .faq-item {
+            margin-bottom: 20px;
+            border: 1px solid #EFEFEF;
+            border-radius: 10px;
+            overflow: hidden;
+            background-color: #FFFFFF;
+        }
+        
+        .faq-question {
+            padding: 20px;
+            background-color: #FFFFFF;
+            color: var(--primary-dark);
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background-color 0.3s ease;
+        }
+        
+        .faq-question:hover {
+            background-color: #f5f5f5;
+        }
+        
+        .faq-question::after {
+            content: '+';
+            font-size: 1.5rem;
+            color: var(--primary-gold);
+            transition: transform 0.3s ease;
+        }
+        
+        .faq-question.active::after {
+            content: '−';
+            transform: rotate(180deg);
+        }
+        
+        .faq-answer {
+            padding: 0 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+        }
+        
+        .faq-answer.active {
+            padding: 0 20px 20px;
+            max-height: 1000px;
+        }
+        
+        /* CTA Section */
+        .cta {
+            padding: 100px 0;
+            background-color: var(--primary-dark);
+            color: var(--text-light);
+            text-align: center;
+        }
+        
+        .cta h2 {
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+        }
+        
+        .cta p {
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            font-size: 1.2rem;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 2rem;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--accent-dark);
+            color: var(--text-light);
+            padding: 50px 0 20px;
+        }
+        
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .footer-logo img {
+            height: 40px;
+        }
+        
+        .footer-logo-text {
+            margin-left: 10px;
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            font-size: 1.3rem;
+            color: var(--primary-gold);
+        }
+        
+        .footer-about p {
+            margin-bottom: 20px;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        
+        .footer-social {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .footer-social a {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-light);
+            text-decoration: none;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+        
+        .footer-social a:hover {
+            background-color: var(--primary-gold);
+            color: var(--primary-dark);
+            transform: translateY(-3px);
+        }
+        
+        .footer-links h3 {
+            color: var(--primary-gold);
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+        
+        .footer-links ul {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-size: 0.9rem;
+            opacity: 0.8;
+            transition: opacity 0.3s ease, color 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            opacity: 1;
+            color: var(--primary-gold);
+        }
+        
+        .footer-contact p {
+            margin-bottom: 10px;
+            font-size: 0.9rem;
+            opacity: 0.8;
+            display: flex;
+            align-items: center;
+        }
+        
+        .footer-contact i {
+            margin-right: 10px;
+            color: var(--primary-gold);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+        
+        /* Quiz Popup */
+        .quiz-popup {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+        
+        .quiz-popup.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .quiz-content {
+            background-color: #FFFFFF;
+            border-radius: 10px;
+            max-width: 600px;
+            width: 90%;
+            padding: 40px;
+            position: relative;
+            transform: translateY(50px);
+            opacity: 0;
+            transition: transform 0.5s ease, opacity 0.5s ease;
+        }
+        
+        .quiz-popup.active .quiz-content {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        
+        .quiz-close {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 1.5rem;
+            color: var(--text-dark);
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+        
+        .quiz-close:hover {
+            color: var(--primary-gold);
+        }
+        
+        /* Notification Popup */
+        .notification-popup {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            z-index: 1000;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+        
+        .notification-popup.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 1024px) {
+            h1 { font-size: 3rem; }
+            h2 { font-size: 2.2rem; }
+            .hero { padding: 150px 0 80px; }
+            .testimonial-card { width: calc(50% - 15px); }
+            .pricing-container { flex-direction: column; align-items: center; }
+            .pricing-card { max-width: 100%; width: 100%; }
+            .pricing-card.featured { transform: scale(1); margin: 30px 0; }
+            .pricing-card.featured:hover { transform: translateY(-10px); }
+            .value-stack-content, .guarantee-content, .transformation-content {
+                flex-direction: column;
+            }
+            .value-stack-image, .guarantee-image, .transformation-image {
+                order: -1;
+                margin-bottom: 30px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5rem; }
+            h2 { font-size: 2rem; }
+            h3 { font-size: 1.5rem; }
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: var(--primary-dark);
+                flex-direction: column;
+                padding: 20px 0;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+            }
+            .nav-links.active {
+                display: flex;
+            }
+            .nav-links li {
+                margin: 10px 20px;
+            }
+            .mobile-menu {
+                display: block;
+            }
+            .hero { padding: 120px 0 60px; text-align: center; }
+            .hero-content { margin: 0 auto; }
+            .hero-cta { flex-direction: column; align-items: center; }
+            .countdown { flex-wrap: wrap; justify-content: center; }
+            .limited-spots-content { flex-direction: column; }
+            .testimonial-card { width: 100%; }
+            .cta-buttons { flex-direction: column; align-items: center; }
+            .footer-container { grid-template-columns: 1fr; }
+            .sticky-cta-container { flex-direction: column; text-align: center; gap: 10px; }
+        }
+        
+        @media (max-width: 480px) {
+            h1 { font-size: 2rem; }
+            h2 { font-size: 1.8rem; }
+            .btn { width: 100%; }
+            .countdown-number { font-size: 1.5rem; min-width: 50px; }
+            .testimonial-card { min-width: 90%; }
+        }
+        
+        /* Animation Keyframes */
+        @keyframes pulse {
+            0% { transform: scale(1); box-shadow: 0 4px 15px rgba(230, 168, 23, 0.4); }
+            50% { transform: scale(1.05); box-shadow: 0 8px 25px rgba(230, 168, 23, 0.6); }
+            100% { transform: scale(1); box-shadow: 0 4px 15px rgba(230, 168, 23, 0.4); }
+        }
+        
+        .pulse-animation {
+            animation: pulse 2s infinite;
+        }
+        
+        /* Custom Styles for Conversion Elements */
+        .cta-button-main {
+            animation: pulse 2s infinite;
+            font-size: 1.4rem;
+            padding: 20px 40px;
+            border-radius: 50px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 700;
+            box-shadow: 0 8px 25px rgba(230, 168, 23, 0.6);
+        }
+        
+        .social-proof {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 15px;
+            margin-top: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .social-proof-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .social-proof-icon {
+            color: var(--primary-gold);
+            font-size: 1.2rem;
+        }
+        
+        .social-proof-text {
+            font-size: 0.9rem;
+            margin: 0;
+        }
+        
+        .highlight-box {
+            background-color: rgba(230, 168, 23, 0.1);
+            border-left: 3px solid var(--primary-gold);
+            padding: 20px;
+            margin: 30px 0;
+            border-radius: 0 10px 10px 0;
+        }
+        
+        .highlight-box h3 {
+            color: var(--primary-gold);
+            margin-bottom: 10px;
+        }
+        
+        .highlight-box p {
+            margin-bottom: 0;
+        }
+        
+        .sticky-cta {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: var(--primary-dark);
+            padding: 15px 0;
+            box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.1);
+            z-index: 900;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+        
+        .sticky-cta.active {
+            transform: translateY(0);
+        }
+        
+        .sticky-cta-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .sticky-cta-text {
+            color: var(--text-light);
+        }
+        
+        .sticky-cta-text h3 {
+            margin-bottom: 5px;
+            font-size: 1.2rem;
+        }
+        
+        .sticky-cta-text p {
+            margin-bottom: 0;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        
+        .sticky-cta-button {
+            flex-shrink: 0;
+        }
+        
+        .bonus-tag {
+            display: inline-block;
+            background-color: var(--primary-gold);
+            color: var(--primary-dark);
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        
+        .crossed-price {
+            text-decoration: line-through;
+            color: #999;
+            font-size: 1.5rem;
+            margin-right: 10px;
+        }
+        
+        .discount-badge {
+            display: inline-block;
+            background-color: var(--success);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            margin-left: 10px;
+            transform: rotate(-5deg);
+        }
+        
+        .trust-badges {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .trust-badge {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 10px 15px;
+            border-radius: 5px;
+        }
+        
+        .trust-badge i {
+            color: var(--primary-gold);
+            font-size: 1.2rem;
+        }
+        
+        .trust-badge span {
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+        
+        .floating-button {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background-color: var(--primary-gold);
+            color: var(--primary-dark);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            z-index: 800;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .floating-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+        }
+        
+        .calculator-popup {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+        
+        .calculator-popup.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .calculator-content {
+            background-color: #FFFFFF;
+            border-radius: 10px;
+            max-width: 600px;
+            width: 90%;
+            padding: 40px;
+            position: relative;
+            transform: translateY(50px);
+            opacity: 0;
+            transition: transform 0.5s ease, opacity 0.5s ease;
+        }
+        
+        .calculator-popup.active .calculator-content {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        
+        .calculator-close {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 1.5rem;
+            color: var(--text-dark);
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+        
+        .calculator-close:hover {
+            color: var(--primary-gold);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <img src="assets/logo_caminho_prosperidade.png" alt="Logo Caminho da Prosperidade">
+                <div class="logo-text">Caminho da Prosperidade</div>
+            </div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#beneficios">Benefícios</a></li>
+                    <li><a href="#modulos">Módulos</a></li>
+                    <li><a href="#depoimentos">Depoimentos</a></li>
+                    <li><a href="#garantia">Garantia</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                </ul>
+                <div class="mobile-menu">☰</div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="inicio">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Descubra o <span>Caminho da Prosperidade</span> e Transforme Sua Vida em Apenas 8 Semanas</h1>
+                <p>O método comprovado que já ajudou mais de 3.427 pessoas a conquistarem equilíbrio emocional, relacionamentos saudáveis e abundância financeira — mesmo começando do zero.</p>
+                
+                <div class="social-proof">
+                    <div class="social-proof-item">
+                        <div class="social-proof-icon"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
+                        <p class="social-proof-text">4.9/5 (837 avaliações)</p>
+                    </div>
+                    <div class="social-proof-item">
+                        <div class="social-proof-icon"><i class="fas fa-users"></i></div>
+                        <p class="social-proof-text">3.427+ alunos</p>
+                    </div>
+                    <div class="social-proof-item">
+                        <div class="social-proof-icon"><i class="fas fa-shield-alt"></i></div>
+                        <p class="social-proof-text">Garantia de 30 dias</p>
+                    </div>
+                </div>
+                
+                <div class="hero-cta">
+                    <a href="#precos" class="btn btn-primary btn-large cta-button-main">QUERO TRANSFORMAR MINHA VIDA AGORA</a>
+                    <a href="#modulos" class="btn btn-secondary">Ver conteúdo do curso</a>
+                </div>
+                
+                <div class="countdown-container">
+                    <div class="countdown-title">OFERTA ESPECIAL TERMINA EM:</div>
+                    <div class="countdown">
+                        <div class="countdown-item">
+                            <span class="countdown-number" id="countdown-hours">23</span>
+                            <span class="countdown-label">Horas</span>
+                        </div>
+                        <div class="countdown-item">
+                            <span class="countdown-number" id="countdown-minutes">59</span>
+                            <span class="countdown-label">Minutos</span>
+                        </div>
+                        <div class="countdown-item">
+                            <span class="countdown-number" id="countdown-seconds">59</span>
+                            <span class="countdown-label">Segundos</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Limited Spots Section -->
+    <section class="limited-spots">
+        <div class="container">
+            <div class="limited-spots-content">
+                <img src="assets/limited_spots_bar.png" alt="Vagas Limitadas">
+                <!-- Text is embedded in the image -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="benefits" id="beneficios">
+        <div class="container">
+            <div class="section-title">
+                <h2>Por Que Este Curso Vai Transformar Sua Vida</h2>
+                <p>Descubra como o Caminho da Prosperidade pode ajudar você a superar seus limites e alcançar o sucesso em todas as áreas da sua vida.</p>
+            </div>
+            
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon"><i class="fas fa-brain"></i></div>
+                    <h3>Mentalidade Transformada</h3>
+                    <p>Aprenda a reprogramar seus padrões mentais limitantes e desenvolva uma mentalidade de abundância e crescimento que atrairá oportunidades para sua vida.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon"><i class="fas fa-heart"></i></div>
+                    <h3>Equilíbrio Emocional</h3>
+                    <p>Domine técnicas comprovadas para gerenciar suas emoções, reduzir o estresse e a ansiedade, e cultivar uma paz interior inabalável mesmo em tempos difíceis.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon"><i class="fas fa-coins"></i></div>
+                    <h3>Prosperidade Financeira</h3>
+                    <p>Desenvolva hábitos financeiros saudáveis, elimine crenças limitantes sobre dinheiro e aprenda estratégias práticas para aumentar sua renda e construir patrimônio.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon"><i class="fas fa-users"></i></div>
+                    <h3>Relacionamentos Fortalecidos</h3>
+                    <p>Construa conexões mais profundas e significativas, melhore sua comunicação e estabeleça limites saudáveis em todos os seus relacionamentos pessoais e profissionais.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon"><i class="fas fa-clock"></i></div>
+                    <h3>Produtividade Maximizada</h3>
+                    <p>Aprenda a criar rotinas poderosas, eliminar a procrastinação e focar no que realmente importa, multiplicando seus resultados em menos tempo.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon"><i class="fas fa-star"></i></div>
+                    <h3>Propósito Alinhado</h3>
+                    <p>Descubra sua missão de vida, alinhe suas ações com seus valores mais profundos e desperte a motivação intrínseca que o levará a uma vida plena de significado.</p>
+                </div>
+            </div>
+            
+            <div class="text-center mt-5">
+                <a href="#precos" class="btn btn-primary btn-large">QUERO TODOS ESSES BENEFÍCIOS AGORA</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Transformation Section -->
+    <section class="transformation">
+        <div class="container">
+            <div class="transformation-content">
+                <div class="transformation-text">
+                    <div class="section-title" style="text-align: left;">
+                        <h2>Transformação Real e Duradoura</h2>
+                    </div>
+                    <p>Não se trata apenas de mais um curso com promessas vazias. O Caminho da Prosperidade é um sistema completo de transformação que aborda todas as áreas da sua vida de forma integrada.</p>
+                    <p>Nossos alunos não apenas aprendem conceitos teóricos, mas implementam mudanças práticas que geram resultados visíveis e mensuráveis em suas vidas.</p>
+                    <div class="highlight-box">
+                        <h3>O Que Você Vai Conquistar:</h3>
+                        <ul>
+                            <li><i class="fas fa-check text-gold"></i> Clareza sobre seus objetivos e propósito de vida</li>
+                            <li><i class="fas fa-check text-gold"></i> Confiança para tomar decisões alinhadas com seus valores</li>
+                            <li><i class="fas fa-check text-gold"></i> Habilidades práticas para gerenciar seu tempo e energia</li>
+                            <li><i class="fas fa-check text-gold"></i> Estratégias comprovadas para aumentar sua renda</li>
+                            <li><i class="fas fa-check text-gold"></i> Técnicas para cultivar relacionamentos saudáveis e nutritivos</li>
+                            <li><i class="fas fa-check text-gold"></i> Ferramentas para manter o equilíbrio emocional em qualquer situação</li>
+                        </ul>
+                    </div>
+                    <p>Imagine como seria sua vida daqui a 8 semanas se você começasse a implementar essas mudanças hoje mesmo.</p>
+                    <a href="#precos" class="btn btn-primary">QUERO INICIAR MINHA TRANSFORMAÇÃO</a>
+                </div>
+                <div class="transformation-image">
+                    <img src="assets/before_after_results.png" alt="Transformação Antes e Depois">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modules Section -->
+    <section class="modules" id="modulos">
+        <div class="container">
+            <div class="section-title">
+                <h2>Conheça o Conteúdo Completo do Curso</h2>
+                <p>Um programa estruturado em 8 módulos para guiar sua jornada de transformação passo a passo.</p>
+            </div>
+            <div class="modules-grid">
+                <!-- Módulo 1 -->
+                <div class="module-card">
+                    <div class="module-number">1</div>
+                    <h3>Superando Seus Limites</h3>
+                    <p>Descubra como identificar e superar as crenças limitantes que têm sabotado seu sucesso e felicidade.</p>
+                    <ul class="module-features">
+                        <li>Mapeamento de crenças limitantes</li>
+                        <li>Técnica de reprogramação mental</li>
+                        <li>Exercícios práticos de autoconhecimento</li>
+                        <li>Meditação guiada para liberação de bloqueios</li>
+                    </ul>
+                </div>
+                <!-- Módulo 2 -->
+                <div class="module-card">
+                    <div class="module-number">2</div>
+                    <h3>O Segredo dos Vencedores</h3>
+                    <p>Aprenda a desenvolver uma rotina poderosa que alinha corpo, mente e espírito para máxima performance.</p>
+                    <ul class="module-features">
+                        <li>Ritual matinal dos milionários</li>
+                        <li>Planejamento estratégico semanal</li>
+                        <li>Técnicas de produtividade avançadas</li>
+                        <li>Hábitos que transformam resultados</li>
+                    </ul>
+                </div>
+                <!-- Módulo 3 -->
+                <div class="module-card">
+                    <div class="module-number">3</div>
+                    <h3>Equilíbrio Mental e Emocional</h3>
+                    <p>Domine técnicas de meditação, respiração e mindfulness para cultivar paz interior e clareza mental.</p>
+                    <ul class="module-features">
+                        <li>Meditação para iniciantes</li>
+                        <li>Técnicas de respiração para controle emocional</li>
+                        <li>Práticas de mindfulness no dia a dia</li>
+                        <li>Gerenciamento do estresse e ansiedade</li>
+                    </ul>
+                </div>
+                <!-- Módulo 4 -->
+                <div class="module-card">
+                    <div class="module-number">4</div>
+                    <h3>Livros que Mudam Vidas</h3>
+                    <p>Conheça os principais ensinamentos dos livros mais transformadores sobre desenvolvimento pessoal e prosperidade.</p>
+                    <ul class="module-features">
+                        <li>Resumos práticos dos melhores livros</li>
+                        <li>Exercícios de aplicação dos conceitos</li>
+                        <li>Técnica de leitura eficiente</li>
+                        <li>Plano de estudos personalizado</li>
+                    </ul>
+                </div>
+                <!-- Módulo 5 -->
+                <div class="module-card">
+                    <div class="module-number">5</div>
+                    <h3>Terapia e Crescimento Pessoal</h3>
+                    <p>Entenda como a terapia pode acelerar seu crescimento pessoal e aprenda técnicas de autoajuda comprovadas.</p>
+                    <ul class="module-features">
+                        <li>Introdução às principais abordagens terapêuticas</li>
+                        <li>Exercícios de autoconhecimento profundo</li>
+                        <li>Técnicas de processamento emocional</li>
+                        <li>Ferramentas para cura de traumas</li>
+                    </ul>
+                </div>
+                <!-- Módulo 6 -->
+                <div class="module-card">
+                    <div class="module-number">6</div>
+                    <h3>Workshops e Cursos Transformadores</h3>
+                    <p>Descubra como selecionar as melhores experiências de aprendizado para acelerar seu desenvolvimento.</p>
+                    <ul class="module-features">
+                        <li>Critérios para escolher cursos de qualidade</li>
+                        <li>Como maximizar o aprendizado em workshops</li>
+                        <li>Implementação prática dos conhecimentos</li>
+                        <li>Criação de rede de contatos estratégicos</li>
+                    </ul>
+                </div>
+                <!-- Módulo 7 -->
+                <div class="module-card">
+                    <div class="module-number">7</div>
+                    <h3>Ame-se Incondicionalmente</h3>
+                    <p>Aprenda a desenvolver uma relação saudável consigo mesmo através da autocompaixão e aceitação.</p>
+                    <ul class="module-features">
+                        <li>Práticas diárias de autocompaixão</li>
+                        <li>Superação da autocrítica destrutiva</li>
+                        <li>Desenvolvimento da autoaceitação</li>
+                        <li>Técnicas para aumentar a autoestima</li>
+                    </ul>
+                </div>
+                <!-- Módulo 8 -->
+                <div class="module-card">
+                    <div class="module-number">8</div>
+                    <h3>Relacionamentos Saudáveis</h3>
+                    <p>Desenvolva habilidades para construir e manter relacionamentos nutritivos e mutuamente benéficos.</p>
+                    <ul class="module-features">
+                        <li>Comunicação não-violenta</li>
+                        <li>Estabelecimento de limites saudáveis</li>
+                        <li>Resolução construtiva de conflitos</li>
+                        <li>Cultivo de intimidade e conexão profunda</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="text-center mt-5">
+                <div class="bonus-tag">+ 3 BÔNUS EXCLUSIVOS</div>
+                <h3 class="text-gold mb-2">Ao se inscrever hoje, você também recebe:</h3>
+                <ul style="list-style: none; max-width: 600px; margin: 0 auto 30px; text-align: left; color: var(--text-light);">
+                    <li style="margin-bottom: 15px;"><i class="fas fa-gift text-gold"></i> <strong>Bônus 1:</strong> Meditações guiadas para prosperidade (Valor: R$497)</li>
+                    <li style="margin-bottom: 15px;"><i class="fas fa-gift text-gold"></i> <strong>Bônus 2:</strong> E-book "21 Hábitos de Pessoas Altamente Prósperas" (Valor: R$197)</li>
+                    <li style="margin-bottom: 15px;"><i class="fas fa-gift text-gold"></i> <strong>Bônus 3:</strong> Acesso vitalício ao grupo exclusivo de alunos (Valor: R$997)</li>
+                </ul>
+                <a href="#precos" class="btn btn-primary btn-large cta-button-main">QUERO GARANTIR MINHA VAGA AGORA</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials" id="depoimentos">
+        <div class="container">
+            <div class="section-title">
+                <h2>O Que Nossos Alunos Estão Dizendo</h2>
+                <p>Histórias reais de pessoas que transformaram suas vidas com o Caminho da Prosperidade.</p>
+            </div>
+            <div class="testimonials-slider">
+                <!-- Depoimento 1 -->
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="testimonial-avatar"><img src="assets/testimonial_profile_1.png" alt="Mariana Silva"></div>
+                        <div class="testimonial-author">
+                            <h4>Mariana Silva</h4>
+                            <p>Empresária, 37 anos</p>
+                        </div>
+                    </div>
+                    <div class="testimonial-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    <div class="testimonial-text">
+                        <p>"Antes do curso, eu estava sobrecarregada, estressada e sem direção clara na minha vida. Após as 8 semanas, consegui reorganizar minhas prioridades, implementar uma rotina que realmente funciona e aumentar meu faturamento em 62%. Mas o mais importante foi recuperar minha paz interior e alegria de viver. Vale cada centavo investido!"</p>
+                    </div>
+                </div>
+                <!-- Depoimento 2 -->
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="testimonial-avatar"><img src="assets/testimonial_profile_2.png" alt="Ricardo Mendes"></div>
+                        <div class="testimonial-author">
+                            <h4>Ricardo Mendes</h4>
+                            <p>Gerente de Projetos, 42 anos</p>
+                        </div>
+                    </div>
+                    <div class="testimonial-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    <div class="testimonial-text">
+                        <p>"Eu era cético no início, já tinha feito outros cursos sem resultados significativos. Mas o Caminho da Prosperidade é diferente. A abordagem prática e integrada realmente funciona. Em apenas 2 meses, consegui uma promoção no trabalho, melhorei meu relacionamento com minha esposa e filhos, e finalmente comecei a praticar exercícios regularmente. Minha qualidade de vida mudou completamente."</p>
+                    </div>
+                </div>
+                <!-- Depoimento 3 -->
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="testimonial-avatar"><img src="assets/testimonial_profile_3.png" alt="Dra. Camila Rodrigues"></div>
+                        <div class="testimonial-author">
+                            <h4>Dra. Camila Rodrigues</h4>
+                            <p>Médica, 45 anos</p>
+                        </div>
+                    </div>
+                    <div class="testimonial-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    <div class="testimonial-text">
+                        <p>"Como médica, sempre fui cética em relação a cursos de desenvolvimento pessoal. Mas o conteúdo do Caminho da Prosperidade é baseado em ciência e realmente funciona. As técnicas de gerenciamento do estresse e equilíbrio emocional me ajudaram a lidar melhor com a pressão do meu trabalho. Além disso, consegui implementar hábitos financeiros que me permitiram quitar todas as minhas dívidas em 6 meses. Recomendo a todos os meus colegas."</p>
+                    </div>
+                </div>
+                <!-- Adicionar mais depoimentos se necessário -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Value Stack Section -->
+    <section class="value-stack">
+        <div class="container">
+            <div class="value-stack-content">
+                <div class="value-stack-text">
+                    <div class="section-title" style="text-align: left;">
+                        <h2 class="text-white">Um Investimento Que Vale Cada Centavo</h2>
+                    </div>
+                    <p>Quando você analisa tudo o que está recebendo neste programa, percebe que o valor é incomparável a qualquer outro curso disponível no mercado.</p>
+                    <p>Pense no custo de continuar vivendo como está agora: estresse constante, relacionamentos desgastados, oportunidades perdidas, potencial desperdiçado...</p>
+                    <p>Agora compare com o que você ganhará ao investir em si mesmo: clareza mental, equilíbrio emocional, relacionamentos saudáveis, aumento de renda, propósito de vida...</p>
+                    <p>Este não é apenas um curso, é um sistema completo de transformação que afetará positivamente todas as áreas da sua vida pelos próximos anos.</p>
+                    <div class="highlight-box" style="background-color: rgba(255, 255, 255, 0.05); border-color: var(--primary-gold);">
+                        <h3>Garantia Incondicional de 30 Dias</h3>
+                        <p>Estamos tão confiantes nos resultados que você vai obter que oferecemos uma garantia de satisfação total. Se em até 30 dias após o início do curso você não estiver completamente satisfeito, basta nos avisar e devolveremos 100% do seu investimento, sem perguntas ou burocracia.</p>
+                    </div>
+                </div>
+                <div class="value-stack-image">
+                    <img src="assets/value_stack_graphic.png" alt="Valor do Investimento">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing" id="precos">
+        <div class="container">
+            <div class="section-title">
+                <h2>Escolha o Plano Ideal Para Você</h2>
+                <p>Invista em sua transformação hoje e colha os frutos por toda a vida.</p>
+            </div>
+            <div class="pricing-container">
+                <!-- Plano Básico -->
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3 class="pricing-name">Plano Básico</h3>
+                        <div class="pricing-price"><span class="crossed-price">R$1.997</span>R$997<span>à vista</span><span class="discount-badge">-50%</span></div>
+                        <p class="pricing-description">ou 12x de R$97</p>
+                    </div>
+                    <ul class="pricing-features">
+                        <li>Acesso a todos os 8 módulos do curso</li>
+                        <li>Exercícios práticos e materiais de apoio</li>
+                        <li>Acesso por 1 ano à plataforma</li>
+                        <li>Certificado de conclusão</li>
+                        <li class="not-included">Bônus exclusivos</li>
+                        <li class="not-included">Grupo VIP de alunos</li>
+                        <li class="not-included">Sessão individual de mentoria</li>
+                        <li class="not-included">Suporte prioritário</li>
+                    </ul>
+                    <div class="pricing-cta"><a href="#" class="btn btn-secondary">QUERO ESTE PLANO</a></div>
+                </div>
+                <!-- Plano Premium -->
+                <div class="pricing-card featured">
+                    <div class="pricing-header">
+                        <h3 class="pricing-name">Plano Premium</h3>
+                        <div class="pricing-price"><span class="crossed-price">R$2.997</span>R$1.197<span>à vista</span><span class="discount-badge">-60%</span></div>
+                        <p class="pricing-description">ou 12x de R$117</p>
+                    </div>
+                    <ul class="pricing-features">
+                        <li>Acesso a todos os 8 módulos do curso</li>
+                        <li>Exercícios práticos e materiais de apoio</li>
+                        <li>Acesso vitalício à plataforma</li>
+                        <li>Certificado de conclusão</li>
+                        <li>Todos os 3 bônus exclusivos</li>
+                        <li>Acesso ao grupo VIP de alunos</li>
+                        <li class="not-included">Sessão individual de mentoria</li>
+                        <li class="not-included">Suporte prioritário</li>
+                    </ul>
+                    <div class="pricing-cta"><a href="#" class="btn btn-primary pulse-animation">QUERO ESTE PLANO</a></div>
+                </div>
+                <!-- Plano VIP -->
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3 class="pricing-name">Plano VIP</h3>
+                        <div class="pricing-price"><span class="crossed-price">R$4.997</span>R$1.997<span>à vista</span><span class="discount-badge">-60%</span></div>
+                        <p class="pricing-description">ou 12x de R$197</p>
+                    </div>
+                    <ul class="pricing-features">
+                        <li>Acesso a todos os 8 módulos do curso</li>
+                        <li>Exercícios práticos e materiais de apoio</li>
+                        <li>Acesso vitalício à plataforma</li>
+                        <li>Certificado de conclusão</li>
+                        <li>Todos os 3 bônus exclusivos</li>
+                        <li>Acesso ao grupo VIP de alunos</li>
+                        <li>2 sessões individuais de mentoria</li>
+                        <li>Suporte prioritário por 12 meses</li>
+                    </ul>
+                    <div class="pricing-cta"><a href="#" class="btn btn-secondary">QUERO ESTE PLANO</a></div>
+                </div>
+            </div>
+            <div class="trust-badges mt-5">
+                <div class="trust-badge"><i class="fas fa-lock"></i><span>Pagamento 100% Seguro</span></div>
+                <div class="trust-badge"><i class="fas fa-shield-alt"></i><span>Garantia de 30 Dias</span></div>
+                <div class="trust-badge"><i class="fas fa-check-circle"></i><span>Satisfação Garantida</span></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Guarantee Section -->
+    <section class="guarantee" id="garantia">
+        <div class="container">
+            <div class="guarantee-content">
+                <div class="guarantee-image">
+                    <img src="assets/triple_guarantee_badge.png" alt="Tripla Garantia">
+                </div>
+                <div class="guarantee-text">
+                    <div class="section-title" style="text-align: left;">
+                        <h2>Tripla Garantia Blindada</h2>
+                    </div>
+                    <p>Queremos que você se sinta 100% seguro ao investir no Caminho da Prosperidade. Por isso, oferecemos uma tripla garantia que elimina qualquer risco da sua decisão:</p>
+                    <div class="highlight-box">
+                        <h3>1. Garantia de Satisfação de 30 Dias</h3>
+                        <p>Se em até 30 dias você não estiver completamente satisfeito com o curso, basta nos avisar e devolveremos 100% do seu investimento, sem perguntas ou burocracia.</p>
+                    </div>
+                    <div class="highlight-box">
+                        <h3>2. Garantia de Resultados</h3>
+                        <p>Se você seguir o programa conforme as orientações e não obtiver nenhum resultado positivo em 60 dias, devolvemos seu dinheiro e você ainda mantém o acesso ao curso.</p>
+                    </div>
+                    <div class="highlight-box">
+                        <h3>3. Garantia de Suporte</h3>
+                        <p>Garantimos que você nunca estará sozinho nessa jornada. Nossa equipe estará disponível para tirar suas dúvidas e ajudar em sua implementação durante todo o programa.</p>
+                    </div>
+                    <p>Com essas três garantias, você tem a certeza de que estamos comprometidos com a sua transformação e sucesso.</p>
+                    <a href="#precos" class="btn btn-primary">QUERO GARANTIR MINHA VAGA COM RISCO ZERO</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq" id="faq">
+        <div class="container">
+            <div class="section-title">
+                <h2>Perguntas Frequentes</h2>
+                <p>Tire suas dúvidas sobre o Caminho da Prosperidade.</p>
+            </div>
+            <div class="faq-container">
+                <!-- FAQ Item 1 -->
+                <div class="faq-item">
+                    <div class="faq-question">Quanto tempo tenho para assistir ao curso?</div>
+                    <div class="faq-answer"><p>No plano Básico, você tem acesso por 1 ano. Nos planos Premium e VIP, o acesso é vitalício. Você pode assistir no seu próprio ritmo, mas recomendamos seguir a estrutura de 8 semanas para melhores resultados.</p></div>
+                </div>
+                <!-- FAQ Item 2 -->
+                <div class="faq-item">
+                    <div class="faq-question">Preciso ter conhecimento prévio em desenvolvimento pessoal?</div>
+                    <div class="faq-answer"><p>Não! O curso foi estruturado para atender desde iniciantes até pessoas que já estudam desenvolvimento pessoal há anos. Cada módulo começa com conceitos básicos e avança gradualmente para técnicas mais avançadas.</p></div>
+                </div>
+                <!-- FAQ Item 3 -->
+                <div class="faq-item">
+                    <div class="faq-question">Como funciona a garantia de 30 dias?</div>
+                    <div class="faq-answer"><p>É simples: se em até 30 dias após a compra você não estiver satisfeito com o curso por qualquer motivo, basta enviar um e-mail para suporte@caminhoprosperidade.com.br solicitando o reembolso. Devolveremos 100% do seu investimento sem perguntas ou burocracia.</p></div>
+                </div>
+                <!-- FAQ Item 4 -->
+                <div class="faq-item">
+                    <div class="faq-question">Quanto tempo preciso dedicar ao curso por semana?</div>
+                    <div class="faq-answer"><p>Recomendamos dedicar pelo menos 3-5 horas por semana para obter os melhores resultados. Isso inclui assistir às aulas, fazer os exercícios práticos e implementar as técnicas no seu dia a dia. O curso foi desenhado para se adaptar à rotina de pessoas ocupadas.</p></div>
+                </div>
+                <!-- FAQ Item 5 -->
+                <div class="faq-item">
+                    <div class="faq-question">Como terei acesso ao conteúdo?</div>
+                    <div class="faq-answer"><p>Após a confirmação do pagamento, você receberá um e-mail com suas credenciais de acesso à plataforma online. Lá você encontrará todos os módulos, materiais complementares e bônus (dependendo do plano escolhido). O conteúdo pode ser acessado de qualquer dispositivo com conexão à internet.</p></div>
+                </div>
+                <!-- FAQ Item 6 -->
+                <div class="faq-item">
+                    <div class="faq-question">O curso tem certificado?</div>
+                    <div class="faq-answer"><p>Sim! Ao concluir todos os módulos, você receberá um certificado digital que pode ser compartilhado em suas redes sociais ou incluído em seu currículo.</p></div>
+                </div>
+                <!-- FAQ Item 7 -->
+                <div class="faq-item">
+                    <div class="faq-question">Posso parcelar o pagamento?</div>
+                    <div class="faq-answer"><p>Sim! Oferecemos parcelamento em até 12x no cartão de crédito. Também aceitamos PIX e boleto bancário para pagamento à vista com desconto adicional.</p></div>
+                </div>
+                <!-- FAQ Item 8 -->
+                <div class="faq-item">
+                    <div class="faq-question">O que acontece após eu me inscrever?</div>
+                    <div class="faq-answer"><p>Imediatamente após a confirmação do pagamento, você receberá um e-mail de boas-vindas com suas credenciais de acesso e instruções detalhadas sobre como começar. Também terá acesso ao primeiro módulo e materiais introdutórios para que possa iniciar sua jornada de transformação imediatamente.</p></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <h2>Está Pronto Para Transformar Sua Vida?</h2>
+            <p>Não deixe que mais um dia passe sem dar o primeiro passo em direção à vida que você merece. O Caminho da Prosperidade está esperando por você.</p>
+            <div class="countdown-container" style="margin-bottom: 30px;">
+                <div class="countdown-title">OFERTA ESPECIAL TERMINA EM:</div>
+                <div class="countdown">
+                    <div class="countdown-item"><span class="countdown-number" id="countdown-hours-footer">23</span><span class="countdown-label">Horas</span></div>
+                    <div class="countdown-item"><span class="countdown-number" id="countdown-minutes-footer">59</span><span class="countdown-label">Minutos</span></div>
+                    <div class="countdown-item"><span class="countdown-number" id="countdown-seconds-footer">59</span><span class="countdown-label">Segundos</span></div>
+                </div>
+            </div>
+            <div class="cta-buttons">
+                <a href="#precos" class="btn btn-primary btn-large cta-button-main">QUERO TRANSFORMAR MINHA VIDA AGORA</a>
+                <a href="#modulos" class="btn btn-secondary">Ver conteúdo do curso</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-about">
+                    <div class="footer-logo">
+                        <img src="assets/logo_caminho_prosperidade.png" alt="Logo Caminho da Prosperidade">
+                        <div class="footer-logo-text">Caminho da Prosperidade</div>
+                    </div>
+                    <p>Transformando vidas através do desenvolvimento pessoal integrado e estratégias comprovadas para prosperidade em todas as áreas da vida.</p>
+                    <div class="footer-social">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-telegram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h3>Links Rápidos</h3>
+                    <ul>
+                        <li><a href="#inicio">Início</a></li>
+                        <li><a href="#beneficios">Benefícios</a></li>
+                        <li><a href="#modulos">Módulos</a></li>
+                        <li><a href="#depoimentos">Depoimentos</a></li>
+                        <li><a href="#garantia">Garantia</a></li>
+                        <li><a href="#faq">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h3>Informações</h3>
+                    <ul>
+                        <li><a href="#">Termos de Uso</a></li>
+                        <li><a href="#">Política de Privacidade</a></li>
+                        <li><a href="#">Política de Reembolso</a></li>
+                        <li><a href="#">Suporte</a></li>
+                        <li><a href="#">Afiliados</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h3>Contato</h3>
+                    <p><i class="fas fa-envelope"></i> contato@caminhoprosperidade.com.br</p>
+                    <p><i class="fas fa-phone"></i> (11) 99999-9999</p>
+                    <p><i class="fas fa-map-marker-alt"></i> São Paulo, SP - Brasil</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Caminho da Prosperidade. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Sticky CTA -->
+    <div class="sticky-cta">
+        <div class="container sticky-cta-container">
+            <div class="sticky-cta-text">
+                <h3>Oferta Especial por Tempo Limitado</h3>
+                <p>Garanta sua vaga com 60% de desconto</p>
+            </div>
+            <div class="sticky-cta-button">
+                <a href="#precos" class="btn btn-primary">QUERO GARANTIR MINHA VAGA</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Floating Button -->
+    <div class="floating-button" id="quiz-button">
+        <i class="fas fa-question"></i>
+    </div>
+
+    <!-- Quiz Popup -->
+    <div class="quiz-popup" id="quiz-popup">
+        <div class="quiz-content">
+            <div class="quiz-close" id="quiz-close">×</div>
+            <img src="assets/quiz_interface_new.png" alt="Quiz de Prosperidade" style="width: 100%; margin-bottom: 20px;">
+            <a href="#precos" class="btn btn-primary" style="width: 100%;">DESCOBRIR MEU POTENCIAL</a>
+        </div>
+    </div>
+
+    <!-- Notification Popup -->
+    <div class="notification-popup" id="notification-popup">
+        <img src="assets/popup_notification.png" alt="Notificação" style="width: 300px;">
+    </div>
+
+    <!-- Calculator Popup -->
+    <div class="calculator-popup" id="calculator-popup">
+        <div class="calculator-content">
+            <div class="calculator-close" id="calculator-close">×</div>
+            <img src="assets/calculator_roi.png" alt="Calculadora de ROI" style="width: 100%; margin-bottom: 20px;">
+            <a href="#precos" class="btn btn-primary" style="width: 100%;">VER RESULTADOS</a>
+        </div>
+    </div>
+
+    <!-- Font Awesome -->
+    <!-- Script já incluído no head -->
+    
+    <!-- Main JS -->
+    <script src="js/main.js"></script>
+</body>
+</html>
